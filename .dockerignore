@@ -1,0 +1,54 @@
+README.md
+
+# Databases and pid files
+*.sqlite
+*.pid
+
+# Node modules
+node_modules
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Build output
+dist
+build
+out
+
+# Docker override (optional)
+docker-compose.override.yml
+
+# Git
+.git
+
+# IDE / Editor folders
+.vscode
+.idea
+
+# Temporary files
+*.tmp
+*.swp
+
+# Coverage
+coverage
+
+# Cache
+tmp
+.cache
+
+# NextJs
+.next
+Dockerfile
+.dockerignore
+.env*.local

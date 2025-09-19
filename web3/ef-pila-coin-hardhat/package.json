@@ -1,0 +1,20 @@
+{
+  "name": "ef-pila-coin-hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx hardhat node",
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile"
+  },
+  "keywords": [],
+  "author": "efernandes.tech",
+  "license": "MIT",
+  "dependencies": {
+    "hardhat": "^2.26.3"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0"
+  }
+}

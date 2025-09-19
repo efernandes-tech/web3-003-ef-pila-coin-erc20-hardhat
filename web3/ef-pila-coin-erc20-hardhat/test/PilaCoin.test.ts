@@ -12,11 +12,43 @@ describe('PilaCoin Tests', function () {
         return { pilaCoin, owner, otherAccount };
     }
 
-    it('Should test', async function () {
+    it('Should have correct name', async function () {
         const { pilaCoin, owner, otherAccount } = await loadFixture(
             deployFixture,
         );
 
-        expect(true).to.equal(true);
+        const name = await pilaCoin.name();
+
+        expect(name).to.equal('PilaCoin');
+    });
+
+    it('Should have correct symbol', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const symbol = await pilaCoin.symbol();
+
+        expect(symbol).to.equal('PLC');
+    });
+
+    it('Should have correct decimals', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const decimals = await pilaCoin.decimals();
+
+        expect(decimals).to.equal(18);
+    });
+
+    it('Should have correct totalSupply', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const totalSupply = await pilaCoin.totalSupply();
+
+        expect(totalSupply).to.equal(1000n * 10n ** 18n);
     });
 });

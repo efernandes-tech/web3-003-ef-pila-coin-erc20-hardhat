@@ -4,7 +4,7 @@
 import { buildModule } from '@nomicfoundation/hardhat-ignition/modules';
 
 const PilaCoinModule = buildModule('PilaCoinModule', m => {
-    const pilaCoin = m.contract('PilaCoin', [], {});
+    const pilaCoin = m.contract('PilaCoin');
 
     return { pilaCoin };
 });

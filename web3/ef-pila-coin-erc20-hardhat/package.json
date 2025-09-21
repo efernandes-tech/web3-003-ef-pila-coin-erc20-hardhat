@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npx hardhat node",
     "test": "npx hardhat test",
-    "compile": "npx hardhat compile"
+    "compile": "npx hardhat compile",
+    "deploy:dev": "npx hardhat ignition deploy ignition/modules/PilaCoin.ts --network local"
   },
   "keywords": [],
   "author": "efernandes.tech",

@@ -97,4 +97,19 @@ describe('PilaCoin Tests', function () {
             'Insufficient balance',
         );
     });
+
+    it('Should approve', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        await pilaCoin.approve(otherAccount.address, 1n);
+
+        const value = await pilaCoin.allowance(
+            owner.address,
+            otherAccount.address,
+        );
+
+        expect(value).to.equal(1n);
+    });
 });

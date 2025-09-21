@@ -112,4 +112,66 @@ describe('PilaCoin Tests', function () {
 
         expect(value).to.equal(1n);
     });
+
+    it('Should transfer from', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const balanceOwnerBefore = await pilaCoin.balanceOf(owner.address);
+        const balanceOtherBefore = await pilaCoin.balanceOf(
+            otherAccount.address,
+        );
+
+        await pilaCoin.approve(otherAccount.address, 10n);
+
+        const instance = pilaCoin.connect(otherAccount);
+        await instance.transferFrom(owner.address, otherAccount.address, 5n);
+
+        const allowance = await pilaCoin.allowance(
+            owner.address,
+            otherAccount.address,
+        );
+
+        const balanceOwnerAfter = await pilaCoin.balanceOf(owner.address);
+        const balanceOtherAfter = await pilaCoin.balanceOf(
+            otherAccount.address,
+        );
+
+        expect(balanceOwnerBefore).to.equal(1000n * 10n ** 18n);
+        expect(balanceOwnerAfter).to.equal(1000n * 10n ** 18n - 5n);
+
+        expect(balanceOtherBefore).to.equal(0);
+        expect(balanceOtherAfter).to.equal(5);
+
+        expect(allowance).to.equal(5);
+    });
+
+    it('Should NOT transfer from (balance)', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const instance = pilaCoin.connect(otherAccount);
+
+        await expect(
+            instance.transferFrom(
+                otherAccount.address,
+                otherAccount.address,
+                1n,
+            ),
+        ).to.be.revertedWith('Insufficient balance');
+    });
+
+    it('Should NOT transfer from (allowance)', async function () {
+        const { pilaCoin, owner, otherAccount } = await loadFixture(
+            deployFixture,
+        );
+
+        const instance = pilaCoin.connect(otherAccount);
+
+        await expect(
+            instance.transferFrom(owner.address, otherAccount.address, 1n),
+        ).to.be.revertedWith('Insufficient allowance');
+    });
 });

@@ -24,7 +24,13 @@ await contractInstance.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 ```
 
 ```cmd
+cd ./web3/ef-pila-coin-erc20-hardhat
 
+npm i dotenv
+npm i -D @nomiclabs/hardhat-etherscan
+
+npm run deploy:prod
+npx hardhat verify --network sepolia 0x09231A8EB608A84f62A2052972A401014cD0b37F
 ```
 
 ```cmd

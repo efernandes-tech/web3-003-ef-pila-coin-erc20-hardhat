@@ -7,15 +7,18 @@
     "start": "npx hardhat node",
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
-    "deploy:dev": "npx hardhat ignition deploy ignition/modules/PilaCoin.ts --network local"
+    "deploy:dev": "npx hardhat ignition deploy ignition/modules/PilaCoin.ts --network local",
+    "deploy:prod": "npx hardhat ignition deploy ignition/modules/PilaCoin.ts --network sepolia"
   },
   "keywords": [],
   "author": "efernandes.tech",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^17.2.2",
     "hardhat": "^2.26.3"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0"
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8"
   }
 }

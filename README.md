@@ -1,23 +1,23 @@
 <h1 align="center">
-    <a href="#" alt="Project Name">Project Name</a>
+    PilaCoin ERC20 Token
 </h1>
 
 <h3 align="center">
-    Brief description of your project
+    A custom ERC20 token implementation using Hardhat
 </h3>
 
 <p align="center">
-    <a href="https://github.com/efernandes-tech/scaffolds/commits/main">
-        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/efernandes-tech/scaffolds">
+    <a href="https://github.com/efernandes-tech/web3-003-ef-pila-coin-erc20-hardhat/commits/main">
+        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/efernandes-tech/web3-003-ef-pila-coin-erc20-hardhat">
     </a>
-    <img alt="Repository size" src="https://img.shields.io/github/repo-size/efernandes-tech/scaffolds">
+    <img alt="Repository size" src="https://img.shields.io/github/repo-size/efernandes-tech/web3-003-ef-pila-coin-erc20-hardhat">
     <a href="https://edersonfernandes.com.br">
         <img alt="made by @efernandes-tech" src="https://img.shields.io/badge/Made%20by-@efernandes-tech-%2360F6AD">
     </a>
 </p>
 
 <h4 align="center">
-    Status: In progress | Finished
+    Status: Finished
 </h4>
 
 <p align="center">
@@ -30,15 +30,19 @@
 
 ## About
 
-Description about your project and what it does.
+PilaCoin (PLC) is a custom ERC20 token implementation built with Hardhat. This project demonstrates the implementation of a complete ERC20 token with all standard functions including transfer, approve, transferFrom, and allowance management. The token has been deployed and verified on the Sepolia testnet.
 
 ---
 
 ## Features
 
--   [x] Feature One
--   [x] Feature Two
--   [ ] Feature Three (in progress)
+-   [x] ERC20 Token Implementation
+-   [x] Balance and Transfer Functions
+-   [x] Approve and Allowance Management
+-   [x] Delegated Transfer (transferFrom)
+-   [x] Deployment on Hardhat Local Network
+-   [x] Deployment on Sepolia Testnet
+-   [x] Smart Contract Verification on Etherscan
 
 ---
 
@@ -49,53 +53,98 @@ Description about your project and what it does.
 Before you begin, you will need to have the following tools installed:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 
+You will also need:
+- A wallet (e.g., MetaMask)
+- Sepolia testnet ETH for deployment
+- An Infura or Alchemy account for RPC access
+- An Etherscan API key for contract verification
+
 #### Running the project
 
 ```bash
 # Clone this repository
-git clone https://github.com/efernandes-tech/scaffolds.git
+git clone https://github.com/efernandes-tech/web3-003-ef-pila-coin-erc20-hardhat.git
 
 # Access the project folder
-cd scaffolds
+cd web3-003-ef-pila-coin-erc20-hardhat/web3/ef-pila-coin-erc20-hardhat
 
 # Install dependencies
 npm install
 
-# Run the application
-npm start
+# Compile the smart contracts
+npm run compile
 
-# The server will start at port: 3000 - go to http://localhost:3000
+# Run tests
+npm run test
+
+# Start local Hardhat network
+npm run start
+
+# Deploy to local network
+npm run deploy:dev
+
+# Deploy to Sepolia testnet
+npm run deploy:prod
+```
+
+#### Environment Variables
+
+Create a `.env` file in the `web3/ef-pila-coin-erc20-hardhat` directory:
+
+```
+INFURA_API_KEY=your_infura_api_key
+PRIVATE_KEY=your_wallet_private_key
+ETHERSCAN_API_KEY=your_etherscan_api_key
+```
+
+#### Verify Contract on Etherscan
+
+```bash
+npx hardhat verify --network sepolia <CONTRACT_ADDRESS>
 ```
 
 ---
 
 ## Tech Stack
 
-**Frontend:**
+**Smart Contract:**
 
--   [React](https://reactjs.org/)
+-   [Solidity](https://soliditylang.org/) ^0.8.20
+-   [Hardhat](https://hardhat.org/)
 -   [TypeScript](https://www.typescriptlang.org/)
--   [Tailwind CSS](https://tailwindcss.com/)
 
-**Backend:**
+**Blockchain:**
 
--   [Node.js](https://nodejs.org/)
--   [Express](https://expressjs.com/)
--   [MongoDB](https://www.mongodb.com/)
+-   [Ethereum](https://ethereum.org/)
+-   [Sepolia Testnet](https://sepolia.etherscan.io/)
 
-**Tools:**
+**Development Tools:**
 
--   [Visual Studio Code](https://code.visualstudio.com/)
--   [Postman](https://www.postman.com/)
+-   [Hardhat Toolbox](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox)
+-   [Hardhat Etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan)
+-   [dotenv](https://www.npmjs.com/package/dotenv)
+
+**Infrastructure:**
+
+-   [Infura](https://infura.io/) / [Alchemy](https://www.alchemy.com/)
+-   [Etherscan](https://etherscan.io/)
 
 ---
+
+## Token Details
+
+- **Name:** PilaCoin
+- **Symbol:** PLC
+- **Decimals:** 18
+- **Total Supply:** 1,000 PLC
+- **Network:** Sepolia Testnet
 
 ## Author
 
 <a href="https://github.com/efernandes-tech">
-    <img style="border-radius: 50%;" src="https://github.com/efernandes-tech.png" width="100px;" alt="Your Name" />
+    <img style="border-radius: 50%;" src="https://github.com/efernandes-tech.png" width="100px;" alt="Ederson Fernandes" />
     <br />
-    <sub><b>Your Name</b></sub>
+    <sub><b>Ederson Fernandes</b></sub>
 </a>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/efernandes-tech)
